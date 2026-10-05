@@ -6,6 +6,7 @@ import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import myPhoto from "../../Assets/hawalaimg.png";
 import Toolstack from "./Toolstack";
+import CertificateGallery from "./CertificateGallery";
 import { useTranslation } from "../../i18n";
 
 function About() {
@@ -103,6 +104,8 @@ function About() {
               </div>
             </div>
           </div>
+
+          <CertificateGallery />
 
           <h1 className="project-heading">
             {t("about_skillset")} <strong className="purple">{t("about_skillset_purple")} </strong>
