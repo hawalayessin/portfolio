@@ -45,61 +45,64 @@ function About() {
           </Row>
           <div className="resume-info-container" style={{ marginTop: "20px" }}>
             <div className="resume-info-card">
-              <h3 className="purple">🎓 Formation</h3>
+              <h3 className="purple">🎓 {t("about_education_title")}</h3>
               <div className="resume-timeline">
                 <div className="resume-timeline-item">
-                  <span className="resume-date">2023 – 2026</span>
-                  <strong>Ingénieur en Génie Informatique — Business Intelligence</strong>
-                  <p>École Polytechnique de Sousse (EPS), Sousse, Tunisie</p>
+                  <span className="resume-date">{t("about_education_1_year")}</span>
+                  <strong>{t("about_education_1_title")}</strong>
+                  <p>{t("about_education_1_place")}</p>
                 </div>
                 <div className="resume-timeline-item">
-                  <span className="resume-date">2020 – 2023</span>
-                  <strong>Licence — Génie Logiciel &amp; Systèmes d'Information</strong>
-                  <p>ISIMM, Monastir, Tunisie</p>
+                  <span className="resume-date">{t("about_education_2_year")}</span>
+                  <strong>{t("about_education_2_title")}</strong>
+                  <p>{t("about_education_2_place")}</p>
                 </div>
               </div>
             </div>
 
             <div className="resume-info-card">
-              <h3 className="purple">💼 Expérience</h3>
+              <h3 className="purple">💼 {t("about_experience_title")}</h3>
               <div className="resume-timeline">
                 <div className="resume-timeline-item">
-                  <span className="resume-date">2025 – 2026</span>
-                  <strong>DigMaco Analytics — PFE</strong>
-                  <p>Plateforme analytics full-stack · FastAPI · React · ML · Google Gemini</p>
+                  <span className="resume-date">{t("about_experience_1_year")}</span>
+                  <strong>{t("about_experience_1_title")}</strong>
+                  <p>{t("about_experience_1_desc")}</p>
                 </div>
                 <div className="resume-timeline-item">
-                  <span className="resume-date">Juin – Août 2024</span>
-                  <strong>SEO Locale — Stage</strong>
-                  <p>Symfony · React TypeScript · Google Business API</p>
+                  <span className="resume-date">{t("about_experience_2_year")}</span>
+                  <strong>{t("about_experience_2_title")}</strong>
+                  <p>{t("about_experience_2_desc")}</p>
                 </div>
                 <div className="resume-timeline-item">
-                  <span className="resume-date">Jan – Juin 2023</span>
-                  <strong>NeuralBey — Stage</strong>
-                  <p>E-learning · Symfony · ReactJS · Node.js</p>
+                  <span className="resume-date">{t("about_experience_3_year")}</span>
+                  <strong>{t("about_experience_3_title")}</strong>
+                  <p>{t("about_experience_3_desc")}</p>
                 </div>
               </div>
             </div>
 
             <div className="resume-info-card">
-              <h3 className="purple">🏅 Certifications</h3>
+              <h3 className="purple">🏅 {t("about_certifications_title")}</h3>
               <div className="resume-timeline">
                 <div className="resume-timeline-item">
-                  <span className="resume-date">2026</span>
-                  <strong>Data Analytics — IT Specialist</strong>
-                  <p>CertNexus / Certiport — Pearson VUE</p>
+                  <span className="resume-date">{t("about_cert_1_year")}</span>
+                  <strong>{t("about_cert_1_title")}</strong>
+                  <p>{t("about_cert_1_desc")}</p>
                 </div>
                 <div className="resume-timeline-item">
-                  <span className="resume-date">2024</span>
-                  <strong>Microsoft Azure Fundamentals (AZ-900)</strong>
+                  <span className="resume-date">{t("about_cert_2_year")}</span>
+                  <strong>{t("about_cert_2_title")}</strong>
+                  <p>{t("about_cert_2_desc")}</p>
                 </div>
                 <div className="resume-timeline-item">
-                  <span className="resume-date">2024</span>
-                  <strong>IT Specialist — Python · Certiport</strong>
+                  <span className="resume-date">{t("about_cert_3_year")}</span>
+                  <strong>{t("about_cert_3_title")}</strong>
+                  <p>{t("about_cert_3_desc")}</p>
                 </div>
                 <div className="resume-timeline-item">
-                  <span className="resume-date">2023</span>
-                  <strong>CCNA 1 &amp; CCNA 2 — Cisco</strong>
+                  <span className="resume-date">{t("about_cert_4_year")}</span>
+                  <strong>{t("about_cert_4_title")}</strong>
+                  <p>{t("about_cert_4_desc")}</p>
                 </div>
               </div>
             </div>

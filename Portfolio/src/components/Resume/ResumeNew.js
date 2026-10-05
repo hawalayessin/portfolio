@@ -43,8 +43,8 @@ function ResumeNew() {
                 borderBottom: "1px solid rgba(255,255,255,0.08)",
               }}
             >
-              <span>CV Preview</span>
-              <span style={{ fontSize: "0.8rem", opacity: 0.8 }}>PDF</span>
+              <span>{t("resume_preview")}</span>
+              <span style={{ fontSize: "0.8rem", opacity: 0.8 }}>{t("resume_pdf")}</span>
             </div>
             <iframe
               src={cvUrl}

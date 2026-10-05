@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
-import { FaLinkedinIn, FaPhone } from "react-icons/fa";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "../i18n";
 
 function Footer() {
@@ -52,11 +52,13 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="tel:+21699866350"
+                href="https://wa.me/21699866350?text=Bonjour%20Yassine%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous."
                 style={{ color: "white" }}
-                title="+216 99 866 350"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp"
               >
-                <FaPhone />
+                <FaWhatsapp />
               </a>
             </li>
           </ul>

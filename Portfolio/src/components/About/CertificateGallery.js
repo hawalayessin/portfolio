@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Card, Modal } from "react-bootstrap";
+import { useTranslation } from "../../i18n";
 
 const certificates = [
   {
@@ -36,13 +37,14 @@ const certificates = [
 
 function CertificateGallery() {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const { t } = useTranslation();
 
   return (
     <>
       <div className="certificates-section">
         <div className="certificates-header">
-          <h3 className="purple">🏅 Certifications visuelles</h3>
-          <p>Quelques preuves concrètes de mon parcours en data, cloud, Python et réseaux.</p>
+          <h3 className="purple">🏅 {t("about_certifications_title")}</h3>
+          <p>{t("cert_gallery_description") || "Quelques preuves concrètes de mon parcours en data, cloud, Python et réseaux."}</p>
         </div>
 
         <Row className="g-4 justify-content-center">
@@ -58,7 +60,7 @@ function CertificateGallery() {
                   <div className="certificate-media">
                     <img src={cert.image} alt={cert.title} className="certificate-image" />
                     <span className="certificate-year">{cert.year}</span>
-                    <span className="certificate-zoom-hint">Cliquer pour agrandir</span>
+                    <span className="certificate-zoom-hint">{t("cert_gallery_zoom") || "Cliquer pour agrandir"}</span>
                   </div>
                 </button>
                 <Card.Body className="certificate-body">

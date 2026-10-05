@@ -10,14 +10,9 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            {t("about_card_intro")}{" "}
-            <span className="purple">Yassine Ben Hawala</span>{" "}
-            {t("about_card_from")}{" "}
-            <span className="purple">{t("about_card_from_city")}</span>.
+            {t("about_card_intro")} <span className="purple">Yassine Ben Hawala</span> {t("about_card_from")} <span className="purple">{t("about_card_from_city")}</span>.
             <br />
-            {t("about_card_job")} —{" "}
-            <span className="purple">{t("about_card_school")}</span>
-            , {t("lang_bi_track") || "option Business Intelligence"}.
+            {t("about_card_job")} — <span className="purple">{t("about_card_school")}</span>, {t("about_card_track")}.
             <br />
             <br />
             {t("about_card_hobbies")}
@@ -35,9 +30,7 @@ function AboutCard() {
             </li>
           </ul>
 
-          <p style={{ color: "rgb(155 126 172)" }}>
-            {t("about_card_quote")}
-          </p>
+          <p style={{ color: "rgb(155 126 172)" }}>{t("about_card_quote")}</p>
           <footer className="blockquote-footer">Yassine</footer>
         </blockquote>
       </Card.Body>
