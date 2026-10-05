@@ -1,7 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myPhoto from "../../Assets/hawalaimg.png";
-import Tilt from "react-parallax-tilt";
 import { useTranslation } from "../../i18n";
 
 function Home2() {
