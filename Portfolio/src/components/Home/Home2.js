@@ -23,18 +23,15 @@ function Home2() {
               {t("home2_body1b")}
               <b className="purple">{t("home2_body1c_purple")}</b>
               {t("home2_body1d")}
+              <b className="purple">{t("home2_body1e_purple")}</b>
+              {t("home2_body1f")}
               <br />
               <br />
               {t("home2_body2")}
-              <i>
-                <b className="purple">{t("home2_body2_purple")}</b>
-              </i>
+              <b className="purple">{t("home2_body2_purple")}</b>
               {t("home2_body2b")}
-              <br />
-              <br />
-              {t("home2_body3")}
-              <b className="purple">{t("home2_body3_purple")}</b>
-              {t("home2_body3b")}
+              <b className="purple">{t("home2_body2c_purple")}</b>
+              {t("home2_body2d")}
             </p>
           </Col>
           <Col md={4} className="myAvtar">

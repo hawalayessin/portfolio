@@ -30,17 +30,9 @@
 
 ## 👨‍💻 About Me
 
-I'm **Yassine Ben Hawala**, a Computer Engineering graduate from **École Polytechnique de Sousse (EPS)** specializing in **Business Intelligence** and **Full Stack Development**.
+I'm **Yassine Ben Hawala**, a Computer Engineering graduate from **École Polytechnique de Sousse (EPS)** specializing in **Business Intelligence**, with a background in Software Engineering and Information Systems from **ISIMM**.
 
-I build **data-driven applications** and **scalable web systems** using modern tech stacks. My expertise spans:
-- 🔄 **ETL Pipelines** and Data Analytics
-- 📊 **Machine Learning** & Business Intelligence  
-- ⚛️ **React** frontends with elegant UIs
-- 🚀 **FastAPI & Node.js** backends
-- 🗄️ **Database Design** (PostgreSQL, MongoDB)
-- 🐳 **DevOps** (Docker, microservices)
-
-**Current Focus**: Finishing my final year engineering project (**DigMaco Analytics**) — a full-stack behavioral analytics platform with ML-powered insights and AI report generation.
+I develop solutions combining **Software Engineering, Data Analytics, and Business Intelligence** — from designing ETL pipelines and APIs to creating dashboards and modern interfaces. I primarily work with **Python, FastAPI, React, PostgreSQL, SQL, Power BI, and Docker**, with a particular interest in data, process optimization, and artificial intelligence.
 
 ---
 
