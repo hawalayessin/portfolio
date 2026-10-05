@@ -9,8 +9,8 @@ function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row>
-          <Col md={8} className="home-about-description">
+        <Row className="justify-content-center">
+          <Col md={10} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
               {t("home2_title")}{" "}
               <span className="purple">{t("home2_title_purple")}</span>
@@ -33,15 +33,6 @@ function Home2() {
               <b className="purple">{t("home2_body2c_purple")}</b>
               {t("home2_body2d")}
             </p>
-          </Col>
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img
-                src={myPhoto}
-                className="img-fluid home-about-photo"
-                alt="Yassine Ben Hawala"
-              />
-            </Tilt>
           </Col>
         </Row>
       </Container>

@@ -1,5 +1,5 @@
-import React from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import React, { useState } from "react";
+import { Row, Col, Card, Modal } from "react-bootstrap";
 
 const certificates = [
   {
@@ -35,30 +35,63 @@ const certificates = [
 ];
 
 function CertificateGallery() {
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
   return (
-    <div className="certificates-section">
-      <div className="certificates-header">
-        <h3 className="purple">🏅 Certifications visuelles</h3>
-        <p>Quelques preuves concrètes de mon parcours en data, cloud, Python et réseaux.</p>
+    <>
+      <div className="certificates-section">
+        <div className="certificates-header">
+          <h3 className="purple">🏅 Certifications visuelles</h3>
+          <p>Quelques preuves concrètes de mon parcours en data, cloud, Python et réseaux.</p>
+        </div>
+
+        <Row className="g-4 justify-content-center">
+          {certificates.map((cert) => (
+            <Col key={cert.title} xs={12} sm={6} lg={4} xl={3}>
+              <Card className="certificate-card h-100">
+                <button
+                  type="button"
+                  className="certificate-media-button"
+                  onClick={() => setSelectedCertificate(cert)}
+                  aria-label={`Agrandir ${cert.title}`}
+                >
+                  <div className="certificate-media">
+                    <img src={cert.image} alt={cert.title} className="certificate-image" />
+                    <span className="certificate-year">{cert.year}</span>
+                    <span className="certificate-zoom-hint">Cliquer pour agrandir</span>
+                  </div>
+                </button>
+                <Card.Body className="certificate-body">
+                  <Card.Title className="certificate-title">{cert.title}</Card.Title>
+                  <Card.Text className="certificate-meta">{cert.issuer}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
 
-      <Row className="g-4 justify-content-center">
-        {certificates.map((cert) => (
-          <Col key={cert.title} xs={12} sm={6} lg={4} xl={3}>
-            <Card className="certificate-card h-100">
-              <div className="certificate-media">
-                <img src={cert.image} alt={cert.title} className="certificate-image" />
-                <span className="certificate-year">{cert.year}</span>
-              </div>
-              <Card.Body className="certificate-body">
-                <Card.Title className="certificate-title">{cert.title}</Card.Title>
-                <Card.Text className="certificate-meta">{cert.issuer}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </div>
+      <Modal
+        show={Boolean(selectedCertificate)}
+        onHide={() => setSelectedCertificate(null)}
+        centered
+        size="lg"
+        className="certificate-modal"
+      >
+        <Modal.Header closeButton className="certificate-modal-header">
+          <Modal.Title>{selectedCertificate?.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="certificate-modal-body">
+          {selectedCertificate && (
+            <img
+              src={selectedCertificate.image}
+              alt={selectedCertificate.title}
+              className="certificate-modal-image"
+            />
+          )}
+        </Modal.Body>
+      </Modal>
+    </>
   );
 }
 
