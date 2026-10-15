@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import { useTranslation } from "../../i18n";
-import digmaco from "../../Assets/Projects/digmaco.png";
+import digmacoScreenshots from "./digmacoScreenshots";
 import etl from "../../Assets/Projects/etl.png";
 import seo from "../../Assets/Projects/seo.png";
 import stadium from "../../Assets/Projects/stadium.png";
@@ -35,7 +35,8 @@ const projectsFr = [
     techTags: ["Power BI", "Excel", "Business Intelligence", "Data Visualization"],
   },
   {
-    imgPath: digmaco,
+    imgPath: digmacoScreenshots[0].src,
+    screenshots: digmacoScreenshots,
     isBlog: false,
     title: "DigMaco Analytics",
     description:
@@ -111,7 +112,8 @@ const projectsEn = [
     techTags: ["Power BI", "Excel", "Business Intelligence", "Data Visualization"],
   },
   {
-    imgPath: digmaco,
+    imgPath: digmacoScreenshots[0].src,
+    screenshots: digmacoScreenshots,
     isBlog: false,
     title: "DigMaco Analytics",
     description:
@@ -191,6 +193,7 @@ function Projects() {
                 previewLink={proj.previewLink}
                 downloadLink={proj.downloadLink}
                 documentLink={proj.documentLink}
+                screenshots={proj.screenshots}
                 techTags={proj.techTags}
               />
             </Col>

@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsDownload, BsArrowsFullscreen, BsFileEarmarkPdf } from "react-icons/bs";
 import { useTranslation } from "../../i18n";
+import ProjectGallery from "./ProjectGallery";
 
 function ProjectCards(props) {
   const { t } = useTranslation();
@@ -28,6 +29,9 @@ function ProjectCards(props) {
         )}
 
         <div style={{ marginTop: "12px", display: "flex", flexWrap: "wrap", gap: "10px" }}>
+          {props.screenshots && props.screenshots.length > 0 && (
+            <ProjectGallery images={props.screenshots} title={props.title} />
+          )}
           {props.ghLink && (
             <Button variant="primary" href={props.ghLink} target="_blank" rel="noopener noreferrer">
               <BsGithub /> &nbsp;
