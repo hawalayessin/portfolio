@@ -90,6 +90,10 @@ const translations = {
     projects_subtitle: "Voici quelques projets sur lesquels j'ai travaillé.",
     projects_github: "GitHub",
     projects_demo: "Démo",
+    projects_preview: "Voir le dashboard",
+    projects_close: "Fermer",
+    projects_download_report: "Rapport .pbix",
+    projects_document: "Étude de cas PDF",
 
     // Resume
     resume_download: "Télécharger le CV",
@@ -189,6 +193,10 @@ const translations = {
     projects_subtitle: "Here are a few projects I've worked on recently.",
     projects_github: "GitHub",
     projects_demo: "Demo",
+    projects_preview: "View dashboard",
+    projects_close: "Close",
+    projects_download_report: "Report .pbix",
+    projects_document: "PDF case study",
 
     // Resume
     resume_download: "Download CV",
