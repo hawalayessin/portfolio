@@ -1,0 +1,7 @@
+Portfolio/3/
+node_modules/
+build/
+.env
+.env.*
+*.log
+.DS_Store

@@ -1,7 +1,35 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const translations = {
   fr: {
+    hero_eyebrow: "Ingénieur informatique · Profil junior",
+    hero_role: "Développeur Full Stack · BI & Data",
+    hero_description: "Je développe des applications web, des API et des tableaux de bord. Mon fil conducteur : relier des interfaces utiles à des données bien structurées.",
+    hero_projects: "Explorer mes projets",
+    hero_cv: "Consulter mon CV",
+    hero_contact: "Me contacter",
+    hero_stack: "Technologies principales",
+    featured_eyebrow: "Du code aux usages",
+    featured_title: "Trois projets à découvrir",
+    featured_all: "Tous les projets",
+    featured_intro: "Applications, pipelines et dashboards : découvrez les interfaces, les choix techniques et les dépôts associés.",
+    profile_eyebrow: "Mon parcours",
+    profile_title: "Le logiciel et les données, ensemble.",
+    profile_description: "Diplômé en génie informatique, spécialité Business Intelligence, je recherche un premier poste en développement Full Stack ou BI/Data. Mes stages et projets réunissent développement web, intégration de données et analyse.",
+    profile_more: "Formation et expérience",
+    profile_web: "Interfaces React, API REST, authentification et bases relationnelles ou MongoDB.",
+    profile_data: "Préparation des données, pipelines ETL, SQL, modélisation et tableaux de bord Power BI.",
+    contact_eyebrow: "Échangeons",
+    contact_title: "Une opportunité dans votre équipe ?",
+    contact_description: "Je peux vous présenter mes projets et échanger sur un poste junior Full Stack ou BI/Data.",
+    projects_filter: "Filtrer les projets",
+    projects_filter_all: "Tous",
+    projects_filter_web: "Full Stack & Web",
+    projects_filter_data: "BI & Data",
+    projects_count: "projets affichés",
+    resume_intro: "Développement Full Stack et Business Intelligence : retrouvez ma formation, mes stages et mes projets dans mon CV. Vous pouvez télécharger le PDF ou l’ouvrir dans un nouvel onglet.",
+    resume_open: "Ouvrir le PDF",
+    skip_content: "Aller au contenu",
     // Navbar
     nav_home: "Accueil",
     nav_about: "À propos",
@@ -59,7 +87,7 @@ const translations = {
     about_experience_1_year: "2025 – 2026",
     about_experience_1_title: "DigMaco Analytics — PFE",
     about_experience_1_desc: "Plateforme analytics full-stack · FastAPI · React · ML · Google Gemini",
-    about_experience_2_year: "Juin – Août 2024",
+    about_experience_2_year: "Juin – Août 2025",
     about_experience_2_title: "SEO Locale — Stage",
     about_experience_2_desc: "Symfony · React TypeScript · Google Business API",
     about_experience_3_year: "Jan – Juin 2023",
@@ -87,7 +115,7 @@ const translations = {
     // Projects
     projects_title: "Mes",
     projects_title_purple: "Projets",
-    projects_subtitle: "Voici quelques projets sur lesquels j'ai travaillé.",
+    projects_subtitle: "Une sélection de projets académiques et de stages. Le composant ETL est intégré au projet DigMaco.",
     projects_github: "GitHub",
     projects_demo: "Démo",
     projects_preview: "Voir le dashboard",
@@ -110,6 +138,34 @@ const translations = {
     footer_designed: "Conçu et développé par Yassine Ben Hawala",
   },
   en: {
+    hero_eyebrow: "Computer engineering graduate · Junior",
+    hero_role: "Full Stack Developer · BI & Data",
+    hero_description: "I build web applications, APIs and dashboards. My focus: connecting useful interfaces to well-structured data.",
+    hero_projects: "Explore my projects",
+    hero_cv: "View my resume",
+    hero_contact: "Get in touch",
+    hero_stack: "Core technologies",
+    featured_eyebrow: "From code to use cases",
+    featured_title: "Three projects to explore",
+    featured_all: "All projects",
+    featured_intro: "Applications, pipelines and dashboards: explore the interfaces, technical choices and source repositories.",
+    profile_eyebrow: "My background",
+    profile_title: "Software and data, together.",
+    profile_description: "A computer engineering graduate specializing in Business Intelligence, I am looking for my first Full Stack or BI/Data role. My internships and projects combine web development, data integration and analysis.",
+    profile_more: "Education and experience",
+    profile_web: "React interfaces, REST APIs, authentication and relational databases or MongoDB.",
+    profile_data: "Data preparation, ETL pipelines, SQL, data modeling and Power BI dashboards.",
+    contact_eyebrow: "Let's talk",
+    contact_title: "An opportunity on your team?",
+    contact_description: "I would be happy to walk you through my projects and discuss a junior Full Stack or BI/Data role.",
+    projects_filter: "Filter projects",
+    projects_filter_all: "All",
+    projects_filter_web: "Full Stack & Web",
+    projects_filter_data: "BI & Data",
+    projects_count: "projects shown",
+    resume_intro: "Full Stack development and Business Intelligence: find my education, internships and projects in my resume. Download the PDF or open it in a new tab.",
+    resume_open: "Open PDF",
+    skip_content: "Skip to content",
     // Navbar
     nav_home: "Home",
     nav_about: "About",
@@ -166,7 +222,7 @@ const translations = {
     about_experience_1_year: "2025 – 2026",
     about_experience_1_title: "DigMaco Analytics — Capstone Project",
     about_experience_1_desc: "Full-stack analytics platform · FastAPI · React · ML · Google Gemini",
-    about_experience_2_year: "Jun – Aug 2024",
+    about_experience_2_year: "Jun – Aug 2025",
     about_experience_2_title: "SEO Locale — Internship",
     about_experience_2_desc: "Symfony · React TypeScript · Google Business API",
     about_experience_3_year: "Jan – Jun 2023",
@@ -194,7 +250,7 @@ const translations = {
     // Projects
     projects_title: "My Recent",
     projects_title_purple: "Works",
-    projects_subtitle: "Here are a few projects I've worked on recently.",
+    projects_subtitle: "Selected academic and internship projects. The ETL component belongs to DigMaco.",
     projects_github: "GitHub",
     projects_demo: "Demo",
     projects_preview: "View dashboard",
@@ -225,7 +281,14 @@ export const LanguageContext = createContext({
 });
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState("fr");
+  const [lang, setLang] = useState(() => {
+    try { return localStorage.getItem("portfolio-language") === "en" ? "en" : "fr"; }
+    catch { return "fr"; }
+  });
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    try { localStorage.setItem("portfolio-language", lang); } catch { /* Browser storage is optional. */ }
+  }, [lang]);
   const t = (key) => translations[lang][key] || key;
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
