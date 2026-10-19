@@ -12,11 +12,12 @@ function ProjectCards(props) {
   const [showPreview, setShowPreview] = useState(false);
   return (
     <>
-    <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt={props.title} />
+    <Card className="project-card-view" as="article">
+      <Card.Img variant="top" src={props.imgPath} alt={props.title} loading="lazy" decoding="async" />
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
+        {props.context && <p className="project-context">{props.context}</p>}
+        <Card.Title as="h3">{props.title}</Card.Title>
+        <Card.Text>
           {props.description}
         </Card.Text>
 
@@ -28,12 +29,12 @@ function ProjectCards(props) {
           </div>
         )}
 
-        <div style={{ marginTop: "12px", display: "flex", flexWrap: "wrap", gap: "10px" }}>
+        <div className="project-actions">
           {props.screenshots && props.screenshots.length > 0 && (
             <ProjectGallery images={props.screenshots} title={props.title} />
           )}
           {props.ghLink && (
-            <Button variant="primary" href={props.ghLink} target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" role="link" href={props.ghLink} target="_blank" rel="noopener noreferrer" aria-label={`GitHub — ${props.title}`}>
               <BsGithub /> &nbsp;
               {props.isBlog ? t("projects_github") : "GitHub"}
             </Button>
@@ -45,13 +46,13 @@ function ProjectCards(props) {
             </Button>
           )}
           {props.downloadLink && (
-            <Button variant="primary" href={props.downloadLink} download>
+            <Button variant="primary" role="link" href={props.downloadLink} download>
               <BsDownload /> &nbsp;
               {t("projects_download_report")}
             </Button>
           )}
           {props.documentLink && (
-            <Button variant="primary" href={props.documentLink} target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" role="link" href={props.documentLink} target="_blank" rel="noopener noreferrer">
               <BsFileEarmarkPdf /> &nbsp;
               {t("projects_document")}
             </Button>

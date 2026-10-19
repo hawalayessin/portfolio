@@ -17,6 +17,11 @@ function ResumeNew() {
         <h1 className="project-heading" style={{ textAlign: "center", paddingBottom: "20px" }}>
           {t("resume_title")} <strong className="purple">{t("resume_title_purple")}</strong>
         </h1>
+        <p className="resume-intro">{t("resume_intro")}</p>
+        <div className="resume-top-actions">
+          <a className="portfolio-action action-primary" href={cvUrl} download="Yassine_Ben_Hawala_CV.pdf"><AiOutlineDownload aria-hidden="true" /> {t("resume_download")}</a>
+          <a className="portfolio-action action-secondary" href={cvUrl} target="_blank" rel="noreferrer">{t("resume_open")}</a>
+        </div>
         <Row style={{ justifyContent: "center", position: "relative", paddingBottom: "20px" }}>
           <div
             style={{

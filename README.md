@@ -13,9 +13,15 @@ npm ci
 npm start
 ```
 
-Production compilation: `npm run build`. The GitHub Actions workflow checks it
-before changes are integrated. The inherited “learn react” placeholder test was removed;
-no behavioral test coverage is claimed by this build check.
+Production compilation: `npm run build`. Run the four recruiter-path tests with
+`npm test -- --watchAll=false --runInBand`. GitHub Actions runs both checks.
+Tests cover project filters, source links, language persistence and homepage
+navigation. They do not replace manual browser and PDF checks.
+
+The homepage highlights three projects, with direct access to the CV and contact.
+The complete gallery separates Full Stack/Web and BI/Data, while showing internship
+source restrictions. French/English selection persists when browser storage permits;
+the language is also declared on the page. Secondary routes load on demand.
 
 ## Selected work
 
@@ -27,7 +33,7 @@ no behavioral test coverage is claimed by this build check.
 - [BI project documentation](bi-projects/README.md): FIFA World Cup and Car Sales.
 
 Internship work may be described without publishing employer-owned source code.
-The ETL and DigMaco cards refer to components of the same PFE.
+The ETL component belongs to DigMaco and is not counted as a separate gallery project.
 
 ## Attribution
 

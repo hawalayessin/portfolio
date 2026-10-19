@@ -1,110 +1,65 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { AiOutlineArrowRight, AiOutlineMail, AiFillGithub } from "react-icons/ai";
+import { FaLinkedinIn } from "react-icons/fa";
 import myPhoto from "../../Assets/hawalaimg.png";
-import Particle from "../Particle";
-import Home2 from "./Home2";
-import Type from "./Type";
-import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
-import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import ProjectCard from "../Projects/ProjectCards";
+import { getProjects } from "../Projects/projectData";
 import { useTranslation } from "../../i18n";
 
 function Home() {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
+  const featured = getProjects(lang).filter(project => ["digmaco", "stadium", "fifa"].includes(project.id));
   return (
-    <section>
-      <Container fluid className="home-section" id="home">
-        <Particle />
-        <Container className="home-content">
-          <Row>
-            <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
-                {t("home_greeting")}{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
-              </h1>
-
-              <h1 className="heading-name">
-                {t("home_iam")}
-                <strong className="main-name"> YASSINE BEN HAWALA</strong>
-              </h1>
-
-              <div style={{ padding: 50, textAlign: "left" }}>
-                <Type />
-              </div>
-            </Col>
-
-            <Col md={5} className="home-photo-col">
-              <div className="home-photo-wrapper">
-                <img
-                  src={myPhoto}
-                  alt="Yassine Ben Hawala"
-                  className="home-profile-img"
-                />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
-      <Home2 />
-
-      <Container>
-        <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
-          <Col md={12} className="home-about-social">
-            <h1>{t("home_find_me")}</h1>
-            <p>
-              {t("home_connect")}{" "}
-              <span className="purple">{t("home_connect2")}</span>
-            </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/hawalayessin"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                  title="GitHub"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://linkedin.com/in/yessinbh"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                  title="LinkedIn"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="mailto:hawalayessin@gmail.com"
-                  className="icon-colour home-social-icons"
-                  title="Email"
-                >
-                  <AiOutlineMail />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://wa.me/21699866350?text=Bonjour%20Yassine%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                  title="WhatsApp"
-                >
-                  <FaWhatsapp />
-                </a>
-              </li>
+    <>
+      <section className="recruiter-hero" aria-labelledby="hero-name">
+        <Container className="hero-layout">
+          <div className="hero-copy">
+            <p className="hero-eyebrow"><span aria-hidden="true" />{t("hero_eyebrow")}</p>
+            <h1 id="hero-name">Yassine<br /><span>Ben Hawala.</span></h1>
+            <p className="hero-role">{t("hero_role")}</p>
+            <p className="hero-description">{t("hero_description")}</p>
+            <div className="hero-actions">
+              <Link className="portfolio-action action-primary" to="/project">{t("hero_projects")} <AiOutlineArrowRight aria-hidden="true" /></Link>
+              <Link className="portfolio-action action-secondary" to="/resume">{t("hero_cv")}</Link>
+              <a className="hero-contact" href="mailto:hawalayessin@gmail.com">{t("hero_contact")} <AiOutlineMail aria-hidden="true" /></a>
+            </div>
+            <ul className="hero-stack" aria-label={t("hero_stack")}>
+              {["React", "FastAPI", "Node.js", "PostgreSQL", "Power BI"].map(skill => <li key={skill}>{skill}</li>)}
             </ul>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+          </div>
+          <figure className="hero-portrait">
+            <img src={myPhoto} alt="Yassine Ben Hawala" width="360" height="420" loading="eager" decoding="async" />
+            <figcaption><span>01 / SOFTWARE</span><span>02 / DATA & BI</span></figcaption>
+          </figure>
+        </Container>
+      </section>
+      <section className="featured-section" aria-labelledby="featured-heading">
+        <Container>
+          <div className="section-heading-row">
+            <div><p className="section-eyebrow">{t("featured_eyebrow")}</p><h2 id="featured-heading">{t("featured_title")}</h2></div>
+            <Link className="text-link" to="/project">{t("featured_all")} <AiOutlineArrowRight aria-hidden="true" /></Link>
+          </div>
+          <p className="section-intro">{t("featured_intro")}</p>
+          <div className="featured-grid">
+            {featured.map(project => <ProjectCard key={project.id} {...project} description={project.summary} />)}
+          </div>
+        </Container>
+      </section>
+      <section className="profile-overview" aria-labelledby="profile-heading">
+        <Container className="profile-overview-grid">
+          <div><p className="section-eyebrow">{t("profile_eyebrow")}</p><h2 id="profile-heading">{t("profile_title")}</h2><p>{t("profile_description")}</p><Link className="text-link" to="/about">{t("profile_more")} <AiOutlineArrowRight aria-hidden="true" /></Link></div>
+          <div className="expertise-list">
+            <article><span>01</span><div><h3>Full Stack</h3><p>{t("profile_web")}</p></div></article>
+            <article><span>02</span><div><h3>BI & Data</h3><p>{t("profile_data")}</p></div></article>
+          </div>
+        </Container>
+      </section>
+      <section className="contact-section" aria-labelledby="contact-heading">
+        <Container><p className="section-eyebrow">{t("contact_eyebrow")}</p><h2 id="contact-heading">{t("contact_title")}</h2><p>{t("contact_description")}</p><a className="contact-email" href="mailto:hawalayessin@gmail.com">hawalayessin@gmail.com <AiOutlineArrowRight aria-hidden="true" /></a><div className="contact-links"><a href="https://github.com/hawalayessin" target="_blank" rel="noreferrer"><AiFillGithub aria-hidden="true" /> GitHub</a><a href="https://www.linkedin.com/in/yessinbh" target="_blank" rel="noreferrer"><FaLinkedinIn aria-hidden="true" /> LinkedIn</a></div></Container>
+      </section>
+    </>
   );
 }
-
 export default Home;

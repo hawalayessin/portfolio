@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
@@ -16,15 +16,12 @@ function NavBar() {
   const [navColour, updateNavbar] = useState(false);
   const { lang, setLang, t } = useTranslation();
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
-
-  window.addEventListener("scroll", scrollHandler);
+  useEffect(() => {
+    const scrollHandler = () => updateNavbar(window.scrollY >= 20);
+    scrollHandler();
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
 
   return (
     <Navbar
@@ -34,10 +31,11 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex align-items-center">
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center" aria-label="Yassine Ben Hawala — Accueil / Home">
           <span className="navbar-brand-text">YBH</span>
         </Navbar.Brand>
         <Navbar.Toggle
+          label={lang === "fr" ? "Ouvrir ou fermer le menu" : "Open or close menu"}
           aria-controls="responsive-navbar-nav"
           onClick={() => {
             updateExpanded(expand ? false : "expanded");
@@ -50,14 +48,14 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+              <Nav.Link as={NavLink} end to="/" onClick={() => updateExpanded(false)}>
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> {t("nav_home")}
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
               <Nav.Link
-                as={Link}
+                as={NavLink}
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
@@ -67,7 +65,7 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                as={Link}
+                as={NavLink}
                 to="/project"
                 onClick={() => updateExpanded(false)}
               >
@@ -80,7 +78,7 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                as={Link}
+                as={NavLink}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
@@ -92,7 +90,7 @@ function NavBar() {
               <button
                 className="lang-toggle-btn"
                 onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                aria-label="Toggle language"
+                aria-label={lang === "fr" ? "Switch to English" : "Passer en français"}
               >
                 <span className={lang === "fr" ? "lang-active" : ""}>FR</span>
                 <span className="lang-sep">|</span>
