@@ -8,6 +8,8 @@ import neuralbey from "../../Assets/Projects/neuralbey.png";
 const carSalesPreview = `${process.env.PUBLIC_URL}/projects/car-sales/dashboard.png`;
 const carSalesReport = `${process.env.PUBLIC_URL}/projects/car-sales/car-sales.pbix`;
 const fifaProjectPath = `${process.env.PUBLIC_URL}/projects/fifa-world-cup`;
+const talendPreview = `${process.env.PUBLIC_URL}/projects/talend/pipeline.png`;
+const talendScreenshots = [{ src: talendPreview, caption: { fr: "Schéma reconstitué à partir des jobs Talend", en: "Diagram reconstructed from Talend job definitions" } }];
 
 const projectsFr = [
   {
@@ -86,6 +88,14 @@ const projectsFr = [
       "Plateforme e-learning modulaire, scalable et sécurisée. Développement complet du frontend et backend avec gestion des cours, utilisateurs et certifications.",
 
     techTags: ["Symfony", "ReactJS", "Node.js", "MySQL", "Scrum"],
+  },
+  {
+    imgPath: talendPreview,
+    screenshots: talendScreenshots,
+    title: "ETL Talend - Clients & Ventes",
+    description:
+      "Ensemble de jobs de formation Data Engineering sous Talend Open Studio. Extraction depuis SQLite et CSV, mapping avec tMap, calcul de l'âge et de la tranche d'âge des clients. Calcul du montant des achats et catégorisation basic, standard ou premium, puis chargement PostgreSQL. Un job distinct réalise des agrégations avec tAggregateRow et restitue les résultats via tLogRow.",
+    techTags: ["Talend", "ETL", "SQLite", "CSV", "PostgreSQL", "tMap"],
   },
 ];
 
@@ -167,6 +177,14 @@ const projectsEn = [
 
     techTags: ["Symfony", "ReactJS", "Node.js", "MySQL", "Scrum"],
   },
+  {
+    imgPath: talendPreview,
+    screenshots: talendScreenshots,
+    title: "Talend ETL - Customers & Sales",
+    description:
+      "Data Engineering training jobs built with Talend Open Studio. SQLite and CSV extraction, tMap transformations, customer age and age-group calculations. Purchase amounts drive basic, standard or premium customer categories before loading into PostgreSQL. A separate job aggregates data with tAggregateRow and displays results through tLogRow.",
+    techTags: ["Talend", "ETL", "SQLite", "CSV", "PostgreSQL", "tMap"],
+  },
 ];
 
 
@@ -179,10 +197,11 @@ const metadata = [
   { id: "stadium", category: "web", context: { fr: "Projet académique · MERN", en: "Academic project · MERN" }, summary: { fr: "Réserver et annuler un créneau sportif, gérer les terrains et les avis. Un parcours MERN avec authentification JWT et rôles utilisateur / administrateur.", en: "Book and cancel sports time slots, manage stadiums and reviews. A MERN application with JWT authentication and user / administrator roles." } },
   { id: "soa", category: "web", context: { fr: "Architecture distribuée · Démo interactive", en: "Distributed architecture · Interactive demo" }, summary: { fr: "Exécuter une transaction, suivre sa classification et interroger les résultats en GraphQL. Une console interactive pour explorer les règles du pipeline SOAEXA, avec code source et démo publique.", en: "Run a transaction, trace its classification and query results with GraphQL. An interactive console exploring SOAEXA's pipeline rules, with source code and a public demo." } },
   { id: "neuralbey", category: "web", context: { fr: "Stage · Code non public", en: "Internship · Source not public" } },
+  { id: "talend", category: "data", context: { fr: "Formation · Data Engineering", en: "Training · Data Engineering" } },
 ];
 
 // The ETL is part of DigMaco, not a separate project in the gallery.
-const order = ["digmaco", "soa", "stadium", "fifa", "car-sales", "seo", "neuralbey"];
+const order = ["digmaco", "soa", "talend", "stadium", "fifa", "car-sales", "seo", "neuralbey"];
 export function getProjects(lang) {
   return (lang === "fr" ? projectsFr : projectsEn)
     .map((project, index) => ({ ...project, ...metadata[index], context: metadata[index].context?.[lang], summary: metadata[index].summary?.[lang] }))

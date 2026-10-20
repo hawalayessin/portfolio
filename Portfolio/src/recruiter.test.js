@@ -14,13 +14,13 @@ beforeEach(() => localStorage.clear());
 
 test("a recruiter can narrow projects to data and switch back to all work", () => {
   renderPage(<Projects />);
-  expect(screen.getAllByRole("article")).toHaveLength(7);
+  expect(screen.getAllByRole("article")).toHaveLength(8);
   fireEvent.click(screen.getByRole("button", { name: "BI & Data" }));
-  expect(screen.getAllByRole("article")).toHaveLength(3);
+  expect(screen.getAllByRole("article")).toHaveLength(4);
   expect(screen.getByRole("heading", { name: "DigMaco Analytics" })).toBeInTheDocument();
   expect(screen.queryByRole("heading", { name: "Stadium Reservation — MERN" })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Tous", exact: true }));
-  expect(screen.getAllByRole("article")).toHaveLength(7);
+  expect(screen.getAllByRole("article")).toHaveLength(8);
 });
 
 test("web projects show source links and distinguish internship work", () => {
@@ -57,4 +57,20 @@ test("SOAEXA is featured with its demo, source and real screenshots", () => {
   expect(within(project).getByRole("link", { name: /GitHub/ })).toHaveAttribute("href", "https://github.com/hawalayessin/SOAEXA");
   expect(project.querySelector('a[href="https://soaexa-console.vercel.app"]')).toHaveAttribute("target", "_blank");
   expect(within(project).getByRole("img")).toHaveAttribute("src", "/projects/soaexa/preview.png");
+});
+
+test("Talend belongs to Data with a documented diagram and translated details", () => {
+  renderPage(<><Navbar /><Projects /></>);
+  fireEvent.click(screen.getByRole("button", { name: "BI & Data" }));
+  const card = screen.getByRole("heading", { name: "ETL Talend - Clients & Ventes" }).closest("article");
+  expect(within(card).getByText("Formation · Data Engineering")).toBeInTheDocument();
+  expect(within(card).getByRole("img")).toHaveAttribute("src", "/projects/talend/pipeline.png");
+  expect(within(card).getByText(/job distinct réalise des agrégations/)).toBeInTheDocument();
+  expect(within(card).queryAllByRole("link")).toHaveLength(0);
+  fireEvent.click(within(card).getByRole("button", { name: /Voir les captures/ }));
+  expect(screen.getByText(/Schéma reconstitué à partir des jobs Talend/)).toBeInTheDocument();
+  cleanup();
+  renderPage(<><Navbar /><Projects /></>);
+  fireEvent.click(screen.getByRole("button", { name: "Switch to English" }));
+  expect(screen.getByRole("heading", { name: "Talend ETL - Customers & Sales" })).toBeInTheDocument();
 });
