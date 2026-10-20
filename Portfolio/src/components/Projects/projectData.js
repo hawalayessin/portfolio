@@ -37,6 +37,7 @@ const projectsFr = [
     description:
       "Plateforme full-stack d'analyse comportementale pour opérateur télécom. Pipeline ETL complet (Extract-Transform-Load), modules ML (churn, segmentation K-Means, détection d'anomalies), génération de rapports IA via Google Gemini et export PDF automatisé.",
     ghLink: "https://github.com/hawalayessin/user-behavior-analytics",
+    demoLink: "https://insighthub-demo.vercel.app",
     techTags: ["FastAPI", "React", "PostgreSQL", "scikit-learn", "Docker", "Gemini"],
   },
   {
@@ -114,6 +115,7 @@ const projectsEn = [
     description:
       "Full-stack behavioral analytics platform for a telecom operator. Complete ETL pipeline (Extract-Transform-Load), ML modules (churn prediction, K-Means segmentation, anomaly detection), AI report generation via Google Gemini with automated PDF export.",
     ghLink: "https://github.com/hawalayessin/user-behavior-analytics",
+    demoLink: "https://insighthub-demo.vercel.app",
     techTags: ["FastAPI", "React", "PostgreSQL", "scikit-learn", "Docker", "Gemini"],
   },
   {
