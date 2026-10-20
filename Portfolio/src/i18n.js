@@ -111,6 +111,7 @@ const translations = {
     about_skillset_purple: "Techniques",
     about_tools: "Outils",
     about_tools_purple: "utilisés",
+    about_tool_sage: "Sage - Logiciel de comptabilité",
 
     // Projects
     projects_title: "Mes",
@@ -246,6 +247,7 @@ const translations = {
     about_skillset_purple: "Skillset",
     about_tools: "Tools",
     about_tools_purple: "I Use",
+    about_tool_sage: "Sage - Accounting software",
 
     // Projects
     projects_title: "My Recent",

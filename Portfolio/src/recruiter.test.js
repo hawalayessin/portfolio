@@ -6,11 +6,21 @@ import { LanguageProvider } from "./i18n";
 import Projects from "./components/Projects/Projects";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar";
+import Toolstack from "./components/About/Toolstack";
 
 function renderPage(page) {
   return render(<LanguageProvider><MemoryRouter>{page}</MemoryRouter></LanguageProvider>);
 }
 beforeEach(() => localStorage.clear());
+
+test("tools include Sage accounting, Excel and Talend in both languages", () => {
+  renderPage(<><Navbar /><Toolstack /></>);
+  expect(screen.getByTitle("Sage - Logiciel de comptabilité")).toHaveTextContent("Sage");
+  expect(screen.getByTitle("Microsoft Excel")).toHaveTextContent("Excel");
+  expect(screen.getByTitle("Talend Open Studio")).toHaveTextContent("Talend");
+  fireEvent.click(screen.getByRole("button", { name: "Switch to English" }));
+  expect(screen.getByTitle("Sage - Accounting software")).toHaveTextContent("Sage");
+});
 
 test("a recruiter can narrow projects to data and switch back to all work", () => {
   renderPage(<Projects />);
