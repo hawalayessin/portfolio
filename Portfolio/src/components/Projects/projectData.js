@@ -10,6 +10,11 @@ const carSalesReport = `${process.env.PUBLIC_URL}/projects/car-sales/car-sales.p
 const fifaProjectPath = `${process.env.PUBLIC_URL}/projects/fifa-world-cup`;
 const talendPreview = `${process.env.PUBLIC_URL}/projects/talend/pipeline.png`;
 const talendScreenshots = [{ src: talendPreview, caption: { fr: "Schéma reconstitué à partir des jobs Talend", en: "Diagram reconstructed from Talend job definitions" } }];
+const smartshopPath = `${process.env.PUBLIC_URL}/projects/smartshop`;
+const smartshopScreenshots = [
+  { src: `${smartshopPath}/catalogue.png`, caption: { fr: "Catalogue SmartShop et filtres combinés", en: "SmartShop catalogue and combined filters" } },
+  { src: `${smartshopPath}/form.png`, caption: { fr: "Formulaire réactif de gestion des produits", en: "Reactive product management form" } },
+];
 
 const projectsFr = [
   {
@@ -96,6 +101,16 @@ const projectsFr = [
     description:
       "Ensemble de jobs de formation Data Engineering sous Talend Open Studio. Extraction depuis SQLite et CSV, mapping avec tMap, calcul de l'âge et de la tranche d'âge des clients. Calcul du montant des achats et catégorisation basic, standard ou premium, puis chargement PostgreSQL. Un job distinct réalise des agrégations avec tAggregateRow et restitue les résultats via tLogRow.",
     techTags: ["Talend", "ETL", "SQLite", "CSV", "PostgreSQL", "tMap"],
+  },
+  {
+    imgPath: smartshopScreenshots[0].src,
+    screenshots: smartshopScreenshots,
+    title: "SmartShop - Catalogue Angular",
+    description:
+      "Application de catalogue et de gestion de smartphones sous Angular 17 : recherche, filtres combinés par marque, prix et disponibilité, fiches détaillées et CRUD avec formulaires réactifs. Backend Express et MongoDB dans le projet local. Démo Vercel autonome avec données d'exemple et modifications isolées dans l'onglet du visiteur, sans achat réel ni base partagée.",
+    ghLink: "https://github.com/hawalayessin/SmartphoneShop",
+    demoLink: "https://smartshop-angular-demo.vercel.app",
+    techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
   },
 ];
 
@@ -185,6 +200,16 @@ const projectsEn = [
       "Data Engineering training jobs built with Talend Open Studio. SQLite and CSV extraction, tMap transformations, customer age and age-group calculations. Purchase amounts drive basic, standard or premium customer categories before loading into PostgreSQL. A separate job aggregates data with tAggregateRow and displays results through tLogRow.",
     techTags: ["Talend", "ETL", "SQLite", "CSV", "PostgreSQL", "tMap"],
   },
+  {
+    imgPath: smartshopScreenshots[0].src,
+    screenshots: smartshopScreenshots,
+    title: "SmartShop - Angular Catalogue",
+    description:
+      "Angular 17 smartphone catalogue and inventory application: search, combined brand, price and stock filters, detail pages and CRUD with reactive forms. Express and MongoDB backend in the local project. Standalone Vercel demo with sample data and changes isolated in each visitor's tab, without real purchases or a shared database.",
+    ghLink: "https://github.com/hawalayessin/SmartphoneShop",
+    demoLink: "https://smartshop-angular-demo.vercel.app",
+    techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
+  },
 ];
 
 
@@ -198,10 +223,11 @@ const metadata = [
   { id: "soa", category: "web", context: { fr: "Architecture distribuée · Démo interactive", en: "Distributed architecture · Interactive demo" }, summary: { fr: "Exécuter une transaction, suivre sa classification et interroger les résultats en GraphQL. Une console interactive pour explorer les règles du pipeline SOAEXA, avec code source et démo publique.", en: "Run a transaction, trace its classification and query results with GraphQL. An interactive console exploring SOAEXA's pipeline rules, with source code and a public demo." } },
   { id: "neuralbey", category: "web", context: { fr: "Stage · Code non public", en: "Internship · Source not public" } },
   { id: "talend", category: "data", context: { fr: "Formation · Data Engineering", en: "Training · Data Engineering" } },
+  { id: "smartshop", category: "web", context: { fr: "Projet d'apprentissage · Angular", en: "Learning project · Angular" } },
 ];
 
 // The ETL is part of DigMaco, not a separate project in the gallery.
-const order = ["digmaco", "soa", "talend", "stadium", "fifa", "car-sales", "seo", "neuralbey"];
+const order = ["digmaco", "soa", "stadium", "smartshop", "fifa", "car-sales", "seo", "neuralbey", "talend"];
 export function getProjects(lang) {
   return (lang === "fr" ? projectsFr : projectsEn)
     .map((project, index) => ({ ...project, ...metadata[index], context: metadata[index].context?.[lang], summary: metadata[index].summary?.[lang] }))
