@@ -107,7 +107,7 @@ const projectsFr = [
     screenshots: smartshopScreenshots,
     title: "SmartShop - Catalogue Angular",
     description:
-      "Application de catalogue et de gestion de smartphones sous Angular 17 : recherche, filtres combinés par marque, prix et disponibilité, fiches détaillées et CRUD avec formulaires réactifs. Backend Express et MongoDB dans le projet local. Démo Vercel autonome avec données d'exemple et modifications isolées dans l'onglet du visiteur, sans achat réel ni base partagée.",
+      "Application de catalogue et de gestion de smartphones sous Angular 17 : recherche, filtres combinés par marque, prix et disponibilité, fiches détaillées et CRUD avec formulaires réactifs. La démo Vercel reprend l'interface originale du projet avec des produits fictifs chargés depuis un fichier JSON, sans backend déployé ni achat réel. API Express et MongoDB disponibles dans le code source.",
     ghLink: "https://github.com/hawalayessin/SmartphoneShop",
     demoLink: "https://smartshop-angular-demo.vercel.app",
     techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
@@ -205,7 +205,7 @@ const projectsEn = [
     screenshots: smartshopScreenshots,
     title: "SmartShop - Angular Catalogue",
     description:
-      "Angular 17 smartphone catalogue and inventory application: search, combined brand, price and stock filters, detail pages and CRUD with reactive forms. Express and MongoDB backend in the local project. Standalone Vercel demo with sample data and changes isolated in each visitor's tab, without real purchases or a shared database.",
+      "Angular 17 smartphone catalogue and inventory application: search, combined brand, price and stock filters, detail pages and CRUD with reactive forms. The Vercel demo preserves the project's original interface with fictional products loaded from a JSON file, without a deployed backend or real purchases. Express and MongoDB API included in the source code.",
     ghLink: "https://github.com/hawalayessin/SmartphoneShop",
     demoLink: "https://smartshop-angular-demo.vercel.app",
     techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
