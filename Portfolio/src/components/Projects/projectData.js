@@ -1,8 +1,8 @@
 import digmacoScreenshots from "./digmacoScreenshots";
+import soaScreenshots from "./soaScreenshots";
 import etl from "../../Assets/Projects/etl.png";
 import seo from "../../Assets/Projects/seo.png";
 import stadium from "../../Assets/Projects/stadium.png";
-import microservices from "../../Assets/Projects/microservices.png";
 import neuralbey from "../../Assets/Projects/neuralbey.png";
 
 const carSalesPreview = `${process.env.PUBLIC_URL}/projects/car-sales/dashboard.png`;
@@ -68,13 +68,15 @@ const projectsFr = [
     techTags: ["React", "Vite", "Node.js", "MongoDB", "JWT", "Gemini"],
   },
   {
-    imgPath: microservices,
+    imgPath: `${process.env.PUBLIC_URL}/projects/soaexa/preview.png`,
+    screenshots: soaScreenshots,
     isBlog: false,
-    title: "Architecture Microservices SOA",
+    title: "SOAEXA - Console de transactions",
     description:
-      "Architecture distribuée orientée microservices avec communication synchrone (gRPC) et asynchrone (Kafka). Exposition via REST et GraphQL.",
+      "Pipeline de transactions commerciales en cinq services Node.js : réception gRPC et REST, événements Kafka, classification métier, stockage MongoDB et lecture GraphQL. Console React pour exécuter des scénarios, inspecter cinq règles, filtrer le journal et exporter les résultats. Démo Vercel : moteur réel côté serveur et session isolée, sans broker Kafka ni base partagée.",
     ghLink: "https://github.com/hawalayessin/SOAEXA",
-    techTags: ["gRPC", "Kafka", "REST", "GraphQL", "JavaScript"],
+    demoLink: "https://soaexa-console.vercel.app",
+    techTags: ["Node.js", "React", "Kafka", "gRPC", "GraphQL", "MongoDB"],
   },
   {
     imgPath: neuralbey,
@@ -146,13 +148,15 @@ const projectsEn = [
     techTags: ["React", "Vite", "Node.js", "MongoDB", "JWT", "Gemini"],
   },
   {
-    imgPath: microservices,
+    imgPath: `${process.env.PUBLIC_URL}/projects/soaexa/preview.png`,
+    screenshots: soaScreenshots,
     isBlog: false,
-    title: "Microservices SOA Architecture",
+    title: "SOAEXA - Transaction Console",
     description:
-      "Distributed microservices architecture with synchronous (gRPC) and asynchronous (Kafka) communication. Exposed through REST and GraphQL endpoints.",
+      "Commercial transaction pipeline built with five Node.js services: gRPC and REST ingestion, Kafka events, business classification, MongoDB storage and GraphQL reads. A React console runs scenarios, inspects five rules, filters the journal and exports results. Vercel demo: real server-side engine and isolated sessions, without a Kafka broker or shared database.",
     ghLink: "https://github.com/hawalayessin/SOAEXA",
-    techTags: ["gRPC", "Kafka", "REST", "GraphQL", "JavaScript"],
+    demoLink: "https://soaexa-console.vercel.app",
+    techTags: ["Node.js", "React", "Kafka", "gRPC", "GraphQL", "MongoDB"],
   },
   {
     imgPath: neuralbey,
@@ -173,12 +177,12 @@ const metadata = [
   { id: "etl", category: "data" },
   { id: "seo", category: "web", context: { fr: "Stage · Code non public", en: "Internship · Source not public" } },
   { id: "stadium", category: "web", context: { fr: "Projet académique · MERN", en: "Academic project · MERN" }, summary: { fr: "Réserver et annuler un créneau sportif, gérer les terrains et les avis. Un parcours MERN avec authentification JWT et rôles utilisateur / administrateur.", en: "Book and cancel sports time slots, manage stadiums and reviews. A MERN application with JWT authentication and user / administrator roles." } },
-  { id: "soa", category: "web", context: { fr: "Projet académique · Architecture", en: "Academic project · Architecture" } },
+  { id: "soa", category: "web", context: { fr: "Architecture distribuée · Démo interactive", en: "Distributed architecture · Interactive demo" }, summary: { fr: "Exécuter une transaction, suivre sa classification et interroger les résultats en GraphQL. Une console interactive pour explorer les règles du pipeline SOAEXA, avec code source et démo publique.", en: "Run a transaction, trace its classification and query results with GraphQL. An interactive console exploring SOAEXA's pipeline rules, with source code and a public demo." } },
   { id: "neuralbey", category: "web", context: { fr: "Stage · Code non public", en: "Internship · Source not public" } },
 ];
 
 // The ETL is part of DigMaco, not a separate project in the gallery.
-const order = ["digmaco", "stadium", "fifa", "car-sales", "seo", "soa", "neuralbey"];
+const order = ["digmaco", "soa", "stadium", "fifa", "car-sales", "seo", "neuralbey"];
 export function getProjects(lang) {
   return (lang === "fr" ? projectsFr : projectsEn)
     .map((project, index) => ({ ...project, ...metadata[index], context: metadata[index].context?.[lang], summary: metadata[index].summary?.[lang] }))

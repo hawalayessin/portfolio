@@ -10,7 +10,7 @@ import { useTranslation } from "../../i18n";
 
 function Home() {
   const { t, lang } = useTranslation();
-  const featured = getProjects(lang).filter(project => ["digmaco", "stadium", "fifa"].includes(project.id));
+  const featured = getProjects(lang).filter(project => ["digmaco", "soa", "stadium"].includes(project.id));
   return (
     <>
       <section className="recruiter-hero" aria-labelledby="hero-name">

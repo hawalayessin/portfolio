@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { render, screen, fireEvent, cleanup, within } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
 import { LanguageProvider } from "./i18n";
@@ -49,4 +49,12 @@ test("home provides paths to work, resume, contact and real project repositories
   expect(screen.getByRole("link", { name: /Me contacter/ })).toHaveAttribute("href", "mailto:hawalayessin@gmail.com");
   expect(screen.getByRole("link", { name: "GitHub — DigMaco Analytics" })).toHaveAttribute("href", "https://github.com/hawalayessin/user-behavior-analytics");
   expect(screen.getByRole("heading", { name: "Stadium Reservation — MERN" })).toBeInTheDocument();
+});
+
+test("SOAEXA is featured with its demo, source and real screenshots", () => {
+  renderPage(<Home />);
+  const project = screen.getByRole("heading", { name: "SOAEXA - Console de transactions" }).closest("article");
+  expect(within(project).getByRole("link", { name: /GitHub/ })).toHaveAttribute("href", "https://github.com/hawalayessin/SOAEXA");
+  expect(project.querySelector('a[href="https://soaexa-console.vercel.app"]')).toHaveAttribute("target", "_blank");
+  expect(within(project).getByRole("img")).toHaveAttribute("src", "/projects/soaexa/preview.png");
 });
