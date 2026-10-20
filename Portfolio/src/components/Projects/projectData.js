@@ -14,6 +14,7 @@ const smartshopPath = `${process.env.PUBLIC_URL}/projects/smartshop`;
 const smartshopScreenshots = [
   { src: `${smartshopPath}/catalogue.png`, caption: { fr: "Catalogue SmartShop et filtres combinés", en: "SmartShop catalogue and combined filters" } },
   { src: `${smartshopPath}/form.png`, caption: { fr: "Formulaire réactif de gestion des produits", en: "Reactive product management form" } },
+  { src: `${smartshopPath}/footer.png`, caption: { fr: "Footer et navigation vers les pages de la boutique", en: "Footer and shop page navigation" } },
 ];
 
 const projectsFr = [
@@ -107,7 +108,7 @@ const projectsFr = [
     screenshots: smartshopScreenshots,
     title: "SmartShop - Catalogue Angular",
     description:
-      "Application de catalogue et de gestion de smartphones sous Angular 17 : recherche, filtres combinés par marque, prix et disponibilité, fiches détaillées et CRUD avec formulaires réactifs. La démo Vercel reprend l'interface originale du projet avec des produits fictifs chargés depuis un fichier JSON, sans backend déployé ni achat réel. API Express et MongoDB disponibles dans le code source.",
+      "Application Angular 17 de catalogue et de gestion de smartphones : recherche, filtres, fiches détaillées et CRUD avec formulaires réactifs. Navigation multipage, accessoires, offres fictives et panier de démonstration avec quantités et totaux. Bannière et footer revus, données JSON sans backend déployé ni achat réel. API Express et MongoDB disponibles dans le code source.",
     ghLink: "https://github.com/hawalayessin/SmartphoneShop",
     demoLink: "https://smartshop-angular-demo.vercel.app",
     techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
@@ -205,7 +206,7 @@ const projectsEn = [
     screenshots: smartshopScreenshots,
     title: "SmartShop - Angular Catalogue",
     description:
-      "Angular 17 smartphone catalogue and inventory application: search, combined brand, price and stock filters, detail pages and CRUD with reactive forms. The Vercel demo preserves the project's original interface with fictional products loaded from a JSON file, without a deployed backend or real purchases. Express and MongoDB API included in the source code.",
+      "Angular 17 smartphone catalogue and inventory application: search, filters, detail pages and CRUD with reactive forms. Multi-page navigation, accessories, fictional offers and a demo cart with quantities and totals. Refreshed banner and footer, JSON data without a deployed backend or real purchases. Express and MongoDB API included in the source code.",
     ghLink: "https://github.com/hawalayessin/SmartphoneShop",
     demoLink: "https://smartshop-angular-demo.vercel.app",
     techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
