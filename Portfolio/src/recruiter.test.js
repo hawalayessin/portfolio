@@ -24,19 +24,19 @@ test("tools include Sage accounting, Excel and Talend in both languages", () => 
 
 test("a recruiter can narrow projects to data and switch back to all work", () => {
   renderPage(<Projects />);
-  expect(screen.getAllByRole("article")).toHaveLength(9);
+  expect(screen.getAllByRole("article")).toHaveLength(10);
   fireEvent.click(screen.getByRole("button", { name: "BI & Data" }));
   expect(screen.getAllByRole("article")).toHaveLength(4);
   expect(screen.getByRole("heading", { name: "DigMaco Analytics" })).toBeInTheDocument();
   expect(screen.queryByRole("heading", { name: "Stadium Reservation — MERN" })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole("button", { name: "Tous", exact: true }));
-  expect(screen.getAllByRole("article")).toHaveLength(9);
+  expect(screen.getAllByRole("article")).toHaveLength(10);
 });
 
 test("web projects show source links and distinguish internship work", () => {
   renderPage(<Projects />);
   fireEvent.click(screen.getByRole("button", { name: "Full Stack & Web" }));
-  expect(screen.getAllByRole("article")).toHaveLength(5);
+  expect(screen.getAllByRole("article")).toHaveLength(6);
   expect(screen.getByRole("link", { name: "GitHub — Stadium Reservation — MERN" })).toHaveAttribute("href", "https://github.com/hawalayessin/reservation-stade-module-mern-2026");
   expect(screen.getAllByText("Stage · Code non public")).toHaveLength(2);
 });

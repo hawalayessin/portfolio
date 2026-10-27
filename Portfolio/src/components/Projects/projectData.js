@@ -1,3 +1,4 @@
+import louzirScreenshots from "./louzirScreenshots";
 import digmacoScreenshots from "./digmacoScreenshots";
 import soaScreenshots from "./soaScreenshots";
 import etl from "../../Assets/Projects/etl.png";
@@ -113,6 +114,16 @@ const projectsFr = [
     demoLink: "https://smartshop-angular-demo.vercel.app",
     techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
   },
+  {
+    imgPath: louzirScreenshots[0].src,
+    screenshots: louzirScreenshots,
+    title: "LouzirModeIntime — Boutique e-commerce",
+    description:
+      "Boutique e-commerce basée sur Laravel/Bagisto et Vue.js. Personnalisation du thème responsive : carrousel administrable, catalogue avec filtres, fiches produits et recommandations, panier et parcours de commande. Gestion du catalogue, des commandes, des livraisons et du contenu depuis l’administration. Interface français/anglais/arabe, déployée sur Railway avec des données de démonstration.",
+    ghLink: "https://github.com/hawalayessin/LouzirModeIntime",
+    demoLink: "https://louzirmodeintime-production.up.railway.app/",
+    techTags: ["Laravel", "PHP", "Vue.js", "MySQL", "Tailwind CSS", "Railway"],
+  },
 ];
 
 const projectsEn = [
@@ -211,6 +222,16 @@ const projectsEn = [
     demoLink: "https://smartshop-angular-demo.vercel.app",
     techTags: ["Angular", "TypeScript", "RxJS", "Bootstrap", "Express", "MongoDB"],
   },
+  {
+    imgPath: louzirScreenshots[0].src,
+    screenshots: louzirScreenshots,
+    title: "LouzirModeIntime — E-commerce Store",
+    description:
+      "E-commerce store built on Laravel/Bagisto and Vue.js. Customized responsive theme with an admin-managed carousel, catalogue filters, product details and recommendations, cart and checkout. Administration for catalogue, orders, shipping and site content. French/English/Arabic interface deployed on Railway with demonstration data.",
+    ghLink: "https://github.com/hawalayessin/LouzirModeIntime",
+    demoLink: "https://louzirmodeintime-production.up.railway.app/",
+    techTags: ["Laravel", "PHP", "Vue.js", "MySQL", "Tailwind CSS", "Railway"],
+  },
 ];
 
 
@@ -225,10 +246,11 @@ const metadata = [
   { id: "neuralbey", category: "web", context: { fr: "Stage · Code non public", en: "Internship · Source not public" } },
   { id: "talend", category: "data", context: { fr: "Formation · Data Engineering", en: "Training · Data Engineering" } },
   { id: "smartshop", category: "web", context: { fr: "Projet d'apprentissage · Angular", en: "Learning project · Angular" } },
+  { id: "louzir", category: "web", context: { fr: "E-commerce · Déployé sur Railway", en: "E-commerce · Deployed on Railway" } },
 ];
 
 // The ETL is part of DigMaco, not a separate project in the gallery.
-const order = ["digmaco", "soa", "stadium", "smartshop", "fifa", "car-sales", "seo", "neuralbey", "talend"];
+const order = ["digmaco", "soa", "louzir", "stadium", "smartshop", "fifa", "car-sales", "seo", "neuralbey", "talend"];
 export function getProjects(lang) {
   return (lang === "fr" ? projectsFr : projectsEn)
     .map((project, index) => ({ ...project, ...metadata[index], context: metadata[index].context?.[lang], summary: metadata[index].summary?.[lang] }))

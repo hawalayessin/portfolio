@@ -25,6 +25,10 @@ the language is also declared on the page. Secondary routes load on demand.
 
 ## Selected work
 
+- [LouzirModeIntime](https://louzirmodeintime-production.up.railway.app/):
+  Laravel/Bagisto and Vue.js e-commerce store with an admin-managed catalogue,
+  shipping settings, responsive theme and demonstration data.
+
 - [DigMaco Analytics](https://github.com/hawalayessin/user-behavior-analytics):
   final-year project, with API, analytical warehouse, dashboards and an ETL component.
 - [Stadium Reservation](https://github.com/hawalayessin/reservation-stade-module-mern-2026):
